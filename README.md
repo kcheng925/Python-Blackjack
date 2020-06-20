@@ -8,3 +8,5 @@ First will be implementing rules of the game and then will look into how to impl
 - Hit function
 - Initial cards dealt
 - Dealer hits on hard/soft 16 and below
+- Player is dealt 2 cards
+- Given options to hit, split, stand, double down
