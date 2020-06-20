@@ -41,13 +41,21 @@ class Dealer:
     card1 = hand[0]
     card2 = hand[1]
     total = card1 + card2
-    
+
+    def printCard1(self, card1):
+        print('Card 1: ' + str(card1))
+
+    def printEndGame(self, card2, total):
+        print('Card 2: ' + str(card2))
+        print('Total: ' + str(total))
+
     def rules(self, total, hand):
         while total < 16:
             print('Dealer hit')
             hitCard = hit()
             hand.append(hitCard)
             total += hitCard
+            print(hitCard)
             print(total)
 
 class Player:
@@ -62,24 +70,29 @@ class Player:
         print('Total: ' + str(total))
 
     def choice(self, total, hand):
-        print('Select option: ')
+        print('\nSelect option: ')
         print('1. Hit')
         print('2. Split')
         print('3. Double')
         print('4. Stand')
 
 def main():
+    #dealer starts with cards dealt and shows first card
     dealer = Dealer()
     print('Dealer: ')
-    print(dealer.card1)
-    print(dealer.card2)
-    print(dealer.total)
-    dealer.rules(dealer.total, dealer.hand)
+    dealer.printCard1(dealer.card1)
+    #dealer.rules(dealer.total, dealer.hand)
 
+    #player is init and shown both cards
     player = Player()
-    print('Player: ')
+    print('\nPlayer: ')
     player.printHand(player.total, player.hand)
     player.choice(player.total, player.hand)
+
+    #end game, dealer shows second card and hits till >16
+    print('\nEnd game: ')
+    dealer.printEndGame(dealer.card2, dealer.total)
+    dealer.rules(dealer.total, dealer.hand)
 
 if __name__ == "__main__":
     main()
