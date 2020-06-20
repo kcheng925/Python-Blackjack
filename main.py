@@ -44,18 +44,42 @@ class Dealer:
     
     def rules(self, total, hand):
         while total < 16:
-            print('Lower than 16, hit!')
+            print('Dealer hit')
             hitCard = hit()
             hand.append(hitCard)
             total += hitCard
             print(total)
 
+class Player:
+    hand = dealCard()
+    card1 = hand[0]
+    card2 = hand[1]
+    total = card1 + card2
+
+    def printHand(self, total, hand):
+        print('Card 1: ' + str(hand[0]))
+        print('Card 2: ' + str(hand[1]))
+        print('Total: ' + str(total))
+
+    def choice(self, total, hand):
+        print('Select option: ')
+        print('1. Hit')
+        print('2. Split')
+        print('3. Double')
+        print('4. Stand')
+
 def main():
     dealer = Dealer()
+    print('Dealer: ')
     print(dealer.card1)
     print(dealer.card2)
     print(dealer.total)
     dealer.rules(dealer.total, dealer.hand)
+
+    player = Player()
+    print('Player: ')
+    player.printHand(player.total, player.hand)
+    player.choice(player.total, player.hand)
 
 if __name__ == "__main__":
     main()
