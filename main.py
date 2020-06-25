@@ -77,22 +77,31 @@ class Player:
         print('4. Stand')
 
 def main():
-    #dealer starts with cards dealt and shows first card
-    dealer = Dealer()
-    print('Dealer: ')
-    dealer.printCard1(dealer.card1)
-    #dealer.rules(dealer.total, dealer.hand)
+    print('Welcome to Python Blackjack')
+    print('Select an option:')
+    print('1. Start')
+    print('2. Quit')
+    choice = int(input())
 
-    #player is init and shown both cards
-    player = Player()
-    print('\nPlayer: ')
-    player.printHand(player.total, player.hand)
-    player.choice(player.total, player.hand)
+    if(choice == 1):
+        #dealer starts with cards dealt and shows first card
+        dealer = Dealer()
+        print('Dealer: ')
+        dealer.printCard1(dealer.card1)
+        #dealer.rules(dealer.total, dealer.hand)
 
-    #end game, dealer shows second card and hits till >16
-    print('\nEnd game: ')
-    dealer.printEndGame(dealer.card2, dealer.total)
-    dealer.rules(dealer.total, dealer.hand)
+        #player is init and shown both cards
+        player = Player()
+        print('\nPlayer: ')
+        player.printHand(player.total, player.hand)
+        player.choice(player.total, player.hand)
+
+        #end game, dealer shows second card and hits till >16
+        print('\nEnd game: ')
+        dealer.printEndGame(dealer.card2, dealer.total)
+        dealer.rules(dealer.total, dealer.hand)
+    else:
+        print('Goodbye')
 
 if __name__ == "__main__":
     main()
