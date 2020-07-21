@@ -94,7 +94,23 @@ def main():
         player = Player()
         print('\nPlayer: ')
         player.printHand(player.total, player.hand)
-        player.choice(player.total, player.hand)
+
+        #player is given options to choose from
+        while(True):
+            player.choice(player.total, player.hand)
+            pchoice = int(input())
+
+            #hit
+            if (pchoice == 1):
+                hitCard = hit()
+                player.hand.append(hitCard)
+                player.total += hitCard
+                print(hitCard)
+                print(player.total)
+                
+            #stand
+            if (pchoice == 4):
+                break
 
         #end game, dealer shows second card and hits till >16
         print('\nEnd game: ')
